@@ -1,7 +1,10 @@
 require 'dashing'
 
 configure do
-  set :auth_token, 'YOUR_AUTH_TOKEN'
+  set :auth_token, (ENV['dashing_auth_token'] || 'AUTH_TOKEN')
+  set :weather_key, ENV['dashing_weather_token']
+  set :weather_code, 78666
+  set :default_dashboard, 'main'
 
   helpers do
     def protected!
