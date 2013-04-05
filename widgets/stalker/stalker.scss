@@ -1,4 +1,29 @@
 .widget-stalker {
   background-color: #232526;
   box-shadow: 2px 0 3px #0d0d0d, -2px 0 3px #0d0d0d, 0 3px 3px #0d0d0d, 0 -2px 3px #0d0d0d;
+
+  .name {
+    margin: 0;
+    padding: 0 4px;
+    font-size: 24px;
+    text-align: right;
+    line-height: 24px;
+    vertical-align: middle;
+
+    &:before {
+      content: "";
+      display: block;
+      position: relative;
+      top: 16px;
+      left: 10px;
+      border-radius: 8px;
+      width: 10px;
+      height: 10px;
+      background-color: #f60308;
+    }
+
+    &.in:before {
+      background-color: #38ea45;
+    }
+  }
 }

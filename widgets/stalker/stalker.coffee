@@ -1,13 +1,11 @@
 class Dashing.Stalker extends Dashing.Widget
-
-  onData: (data) ->
-    @set 'users', @sort(data.users)
-    console.dir(@get('users'))
+  @accessor 'users', ->
+    @sort(@get 'data')
 
   sort: (users) ->
     users.sort (a, b) ->
-      if a.returning?.length
-        return -1
+      if a.name > b.name
+        return 1
       if a.name < b.name
-        return 0
-      return 1
+        return -1
+      return 0
