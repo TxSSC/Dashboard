@@ -1,0 +1,1 @@
+class Dashing.Travis extends Dashing.Widget
