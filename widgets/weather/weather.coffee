@@ -1,6 +1,6 @@
 class Dashing.Weather extends Dashing.Widget
   @accessor 'image', ->
-      return @get('weather').weather
+      return @get('weather')?.weather
 
   ready: ->
     setInterval(@startTime, 1000)
