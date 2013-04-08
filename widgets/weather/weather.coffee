@@ -10,7 +10,7 @@ class Dashing.Weather extends Dashing.Widget
 
     h = today.getHours()
     m = today.getMinutes()
-    p = if h < 12 then 'pm' else 'am'
+    p = if h < 12 then 'am' else 'pm'
     @set('time', @formatHour(h) + ":" + @formatTime(m))
     @set('date', today.toDateString())
     @set('post', p)
