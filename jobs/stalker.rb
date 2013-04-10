@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 
-SCHEDULER.every '2m', :first_in => 0 do |job|
+SCHEDULER.every '1m', :first_in => 0 do |job|
   http = Net::HTTP.new('stalker.texasschoolsafetycenter.com')
   response = http.request(Net::HTTP::Get.new("/users"))
   users = JSON.parse(response.body)
@@ -13,6 +13,10 @@ SCHEDULER.every '2m', :first_in => 0 do |job|
       }
     end
 
-    send_event('stalker', data: users)
+    users.sort! do |a, b|
+      a[:name].downcase <=> b[:name].downcase
+    end
+
+    send_event('stalker', items: users)
   end
 end
