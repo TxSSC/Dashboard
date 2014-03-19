@@ -119,7 +119,7 @@ class Dashing.Clock extends Dashing.Widget
               R
             ]
           , 750, "ease-in"
-      html[id].innerHTML = ((if value < 10 then "0" else "")) + ((if value > 12 then value % total else value))
+      html[id].innerHTML = ((if value < 10 then "0" else "")) + ((if value is 60 then "00" else value))
       html[id].style.color = Raphael.getRGB(color).hex
       return
 
