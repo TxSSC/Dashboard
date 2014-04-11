@@ -2,8 +2,8 @@ require 'json'
 require 'net/https'
 
 SCHEDULER.every '5m', :first_in => 0 do |job|
-  user = settings.travis_user
-  repos = settings.travis_repos
+  user = settings.TRAVIS_USER
+  repos = settings.TRAVIS_REPOS
   http = Net::HTTP.new('api.travis-ci.org', 443)
   http.use_ssl = true
 

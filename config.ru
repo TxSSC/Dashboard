@@ -1,11 +1,13 @@
 require 'dashing'
 
 configure do
-  set :auth_token, (ENV['dashing_auth_token'] || 'PLEASE')
-  set :weather_key, ENV['dashing_weather_token']
-  set :weather_code, 78666
-  set :travis_user, 'TxSSC'
-  set :travis_repos, ['Stalker', 'Card-Catalog', 'TrapperKeeper']
+  set :AUTH_TOKEN, (ENV['DASHING_AUTH_TOKEN'] || 'PLEASE')
+  set :WEATHER_KEY, ENV['DASHING_WEATHER_TOKEN']
+  set :WEATHER_CODE, 78666
+  set :TRAVIS_USER, 'TxSSC'
+  set :TRAVIS_REPOS, ['Stalker', 'Locker', 'Ticket-System']
+
+  # Default dashboard dashing setting
   set :default_dashboard, 'main'
 
   helpers do
