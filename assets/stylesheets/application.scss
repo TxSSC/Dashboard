@@ -6,7 +6,8 @@
 // Sass declarations
 // ----------------------------------------------------------------------------
 $background-color: #333;
-$text-color: #fff;
+$widget-background-color: #232526;
+$text-color: #cfcfcf;
 
 $background-warning-color-1: #e82711;
 $background-warning-color-2: #9b2d23;
@@ -146,6 +147,8 @@ h3 {
   width: 100%;
   display: table-cell;
   vertical-align: middle;
+  background: $widget-background-color;
+  box-shadow: 2px 0 3px #0d0d0d, -2px 0 3px #0d0d0d, 0 3px 3px #0d0d0d, 0 -2px 3px #0d0d0d;
 }
 
 .widget.status-warning {
