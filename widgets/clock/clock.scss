@@ -1,18 +1,7 @@
-body {
-  background: #333;
-  color: #fff;
-  font: 300 100.1% "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
-}
-#holder {
-  left: 50%;
-  position: absolute;
-  top: 60%;
-  height: 600px;
-  margin: -300px 0 0 -300px;
-  width: 600px;
-}
-#time {
-  margin: 0 0 500px 0;
-  text-align: center;
-  font: 100 2em "Helvetica Neue", Helvetica, Arial, sans-serif;
+.clock {
+
+  .meridian {
+    color: #348;
+  }
+
 }

@@ -2,11 +2,11 @@ class Dashing.Clock extends Dashing.Widget
 
   ready: ->
     date = new Date()
-    paper = Raphael("holder", 600, 600)
+    paper = Raphael(@node.getElementsByClassName("canvas")[0], 600, 600)
     R = 200
     init = true
     xorig = 300
-    yorig = 300
+    yorig = 240
     circle = paper.circle(xorig, yorig, 215).attr(
       fill: "#222"
       stroke: "#333"
@@ -20,16 +20,13 @@ class Dashing.Clock extends Dashing.Widget
       fill: Raphael.hsb2rgb(15 / 200, 1, .75).hex
     )
     arcs = []
-    html = [
-      document.getElementById("h")
-      document.getElementById("m")
-      document.getElementById("s")
-      document.getElementById("d")
-      document.getElementById("mnth")
-      document.getElementById("ampm")
-    ]
-    html[5].style.color = Raphael.hsb2rgb(15 / 200, 1, .75).hex
-
+    html =
+      hour: $(@node).find(".time .hour")
+      minute: $(@node).find(".time .minute")
+      second: $(@node).find(".time .second")
+      meridian: $(@node).find(".time .meridian")
+      month: $(@node).find(".time .month")
+      day: $(@node).find(".time .day")
 
     paper.customAttributes.arc = (value, total, R) ->
       alpha = 360 / total * value
@@ -37,7 +34,7 @@ class Dashing.Clock extends Dashing.Widget
       x = xorig + R * Math.cos(a)
       y = yorig - R * Math.sin(a)
       color = "hsb(".concat(Math.round(R) / 200, ",", value / total, ", .75)")
-      path = undefined
+      path = null
       if total is value
         path = [
           [
@@ -119,8 +116,8 @@ class Dashing.Clock extends Dashing.Widget
               R
             ]
           , 750, "ease-in"
-      html[id].innerHTML = ((if value < 10 then "0" else "")) + ((if value is 60 then "00" else value))
-      html[id].style.color = Raphael.getRGB(color).hex
+      html[id].html(((if value < 10 then "0" else "")) + ((if value is 60 then "00" else value)))
+      html[id].css({ color: Raphael.getRGB(color).hex })
       return
 
     i = 0
@@ -135,14 +132,12 @@ class Dashing.Clock extends Dashing.Widget
 
     redraw = do ->
       d = new Date()
-      am = (d.getHours() < 12)
       h = d.getHours() % 12 or 12
-      updateVal d.getSeconds(), 60, 200, arcs[0], 2
-      updateVal d.getMinutes(), 60, 160, arcs[1], 1
-      updateVal h, 12, 120, arcs[2], 0
-      updateVal d.getDate(), 31, 80, arcs[3], 3
-      updateVal d.getMonth() + 1, 12, 40, arcs[4], 4
-      pm[((if am then "hide" else "show"))]()
-      html[5].innerHTML = (if am then "AM" else "PM")
+      updateVal(d.getSeconds(), 60, 200, arcs[0], "second")
+      updateVal(d.getMinutes(), 60, 160, arcs[1], "minute")
+      updateVal(h, 12, 120, arcs[2], "hour")
+      updateVal(d.getDate(), 31, 80, arcs[3], "month")
+      updateVal(d.getMonth() + 1, 12, 40, arcs[4], "day")
+      html["meridian"].html(if d.getHours() < 12 then "AM" else "PM")
       setTimeout arguments.callee, 1000
       init = false
