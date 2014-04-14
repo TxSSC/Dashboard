@@ -1,0 +1,27 @@
+.widget-weather {
+
+  icon { display: block; }
+  time { font-size: 34px; }
+
+  .time {
+    text-indent: 20px;
+
+    em { font-size: 28px; }
+  }
+
+  .date h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
+  }
+
+  .temperature {
+    position: absolute;
+    top: 106px;
+    right: 186px;
+  }
+
+  .weather {
+    margin: 24px;
+  }
+
+}
