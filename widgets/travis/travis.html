@@ -1,11 +1,12 @@
 <ul>
-  <li data-foreach-repo="repos">
-    <hgroup class="meta">
-      <h1 class="name" data-bind="repo.name" data-addclass-passing="repo.passing"></h1>
-      <h2 class="description" data-bind="repo.description"></h2>
-    </hgroup>
+  <li class="clearfix" data-foreach-repo="repos">
+    <section class="meta">
+      <h1 data-bind="repo.name" data-addclass-passing="repo.passing"></h1>
+      <p data-bind="repo.description"></p>
+    </section>
 
-    <hgroup class="details">
-      <h1>Build &num;<span class="build" data-bind="repo.build" data-addclass-passing="repo.passing"></span></h1>
+    <section class="details">
+      <h1>Build &num;<span data-bind="repo.build" data-addclass-passing="repo.passing"></span></h1>
+    </section>
   </li>
 </ul>

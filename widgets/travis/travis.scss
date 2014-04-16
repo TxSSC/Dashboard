@@ -1,54 +1,50 @@
 .widget-travis {
 
   li {
-    margin: 0 0 8px 0;
+    margin: 0 0 12px 0;
+
+    &:last-child { margin: 0;}
   }
 
-    li:last-child {
-      margin: 0;
-    }
-
-    li:after {
-      content: "";
-      display: block;
-      clear: both;
-    }
-
-  hgroup {
+  section {
     margin: 0;
     padding: 0;
-    width: 50%;
     float: left;
 
-    &.details h1 {
-      font-size: 18px;
-      text-align: right;
+    h1, p {
+      text-align: left;
+      margin-bottom: 0;
+    }
 
-      span {
-        color: #f60308;
+    &.meta {
+      width: 86%;
 
-        &.passing {
-          color: #38ea45;
-        }
+      p {
+        margin: 0;
+        color: #ccc;
+        font-size: 12px;
+        font-weight: 200;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-indent: 20px;
       }
     }
 
-    h1 {
-      margin: 0;
-      text-align: left;
-      font-size: 24px;
-    }
+    &.details {
+      width: 14%;
+      font-size: 18px;
+      line-height: 58px;
 
-    h2 {
-      margin: 0;
-      text-align: left;
-      color: #ccc;
-      font-size: 12px;
-      font-weight: 200;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-indent: 20px;
+      h1 { font-size: 24px; }
+
+      .passing { color: #14ba20; }
+
+      span {
+        color: #f60308;
+        float: right;
+      }
     }
   }
+
 }
