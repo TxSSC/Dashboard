@@ -1,20 +1,27 @@
 <% content_for(:title) { "TxSSC Dashboard" } %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="weather" data-view="Weather" data-title="Weather" data-moreinfo="Weather widget"></div>
-    </li>
-
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="stalker" data-view="Status" data-title="Stalker" data-moreinfo="Stalker users"></div>
-    </li>
-
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="3">
       <div data-id="sentinel" data-view="Status" data-title="Sentinel" data-moreinfo="Sentinel servers"></div>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="3">
+      <div data-id="stalker" data-view="Status" data-title="Stalker" data-moreinfo="Stalker users"></div>
+    </li>
+
+    <li data-row="1" data-col="2" data-sizex="2" data-sizey="1">
+      <div data-id="weather" data-view="Weather" data-title="Weather" data-moreinfo="Weather widget"></div>
+    </li>
+
+    <li data-row="2" data-col="2" data-sizex="2" data-sizey="2">
       <div data-id="travis" data-view="Travis" data-title="Travis" data-moreinfo="Travis repositories"></div>
     </li>
   </ul>
 </div>
+
+<script type='text/javascript'>
+  $(function() {
+    Dashing.widget_base_dimensions = [468, 346]
+    Dashing.numColumns = 4
+  });
+</script>
