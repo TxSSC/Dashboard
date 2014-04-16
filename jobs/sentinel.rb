@@ -10,7 +10,8 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
     servers = servers.map do |k, v|
       {
         :name => k,
-        :status => v
+        :isOn => v,
+        :isOff => !v
       }
     end
 

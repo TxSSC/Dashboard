@@ -8,10 +8,12 @@ SCHEDULER.every '30s', :first_in => 0 do |job|
 
   if users
     users.map! do |user|
+      location = user['location'].downcase
+
       {
         :name => user['name'].capitalize,
-        :location => user['location'].capitalize,
-        :back => user['back']
+        :isOn => location == 'in',
+        :isOff => location == 'out'
       }
     end
 
@@ -19,6 +21,6 @@ SCHEDULER.every '30s', :first_in => 0 do |job|
       a[:name].downcase <=> b[:name].downcase
     end
 
-    send_event('stalker', users: users)
+    send_event('stalker', items: users)
   end
 end
