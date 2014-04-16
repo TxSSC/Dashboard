@@ -5,7 +5,8 @@ configure do
   set :WEATHER_KEY, ENV['DASHING_WEATHER_TOKEN']
   set :WEATHER_CODE, 78666
   set :TRAVIS_USER, 'TxSSC'
-  set :TRAVIS_REPOS, ['Locker', 'Sentinel', 'Stalker', 'Ticket-System']
+  set :TRAVIS_REPOS, ['grunt-carpenter', 'Locker',
+    'Sentinel', 'Stalker', 'Ticket-System']
 
   # Default dashboard dashing setting
   set :default_dashboard, 'main'
