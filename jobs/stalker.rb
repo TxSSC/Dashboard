@@ -9,12 +9,17 @@ SCHEDULER.every '30s', :first_in => 0 do |job|
   if users
     users.map! do |user|
       location = user['location'].downcase
+      user = { :name => user['name'].capitalize }
 
-      {
-        :name => user['name'].capitalize,
-        :isOn => location == 'in',
-        :isOff => location == 'out'
-      }
+      if location == 'in'
+        user[:isGreen] = true
+      elsif location == 'back'
+        user[:isYellow] = true
+      elsif location != 'out'
+        user[:isBlue] = true
+      end
+
+      user
     end
 
     users.sort! do |a, b|
