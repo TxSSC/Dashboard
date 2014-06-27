@@ -2,8 +2,10 @@ require 'net/http'
 require 'json'
 
 SCHEDULER.every '30s', :first_in => 0 do |job|
-  http = Net::HTTP.new('stalker.texasschoolsafetycenter.com')
-  response = http.request(Net::HTTP::Get.new("/users"))
+  http = Net::HTTP.new('stalker.txssc.com')
+  request = Net::HTTP::Get.new("/api/users")
+  request['Authorization'] = settings.STALKER_TOKEN
+  response = http.request(request)
   users = JSON.parse(response.body)
 
   if users

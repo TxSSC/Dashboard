@@ -3,6 +3,7 @@ require 'dashing'
 configure do
   set :AUTH_TOKEN, (ENV['DASHING_AUTH_TOKEN'] || 'PLEASE')
   set :WEATHER_KEY, ENV['DASHING_WEATHER_TOKEN']
+  set :STALKER_TOKEN, ENV['STALKER_API_TOKEN']
   set :WEATHER_CODE, 78666
   set :TRAVIS_USER, 'TxSSC'
   set :TRAVIS_REPOS, ['grunt-carpenter', 'Locker',
