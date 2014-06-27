@@ -11,7 +11,7 @@ SCHEDULER.every '30s', :first_in => 0 do |job|
   if users
     users.map! do |user|
       location = user['location'].downcase
-      user = { :name => user['name'].capitalize }
+      user = { :name => user['name'] }
 
       if location == 'in'
         user[:isGreen] = true
