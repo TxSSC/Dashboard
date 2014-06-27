@@ -6,7 +6,7 @@ SCHEDULER.every '30s', :first_in => 0 do |job|
   request = Net::HTTP::Get.new("/api/users")
   request['Authorization'] = settings.STALKER_TOKEN
   response = http.request(request)
-  users = JSON.parse(response.body)
+  users = JSON.parse(response.body)['users']
 
   if users
     users.map! do |user|
