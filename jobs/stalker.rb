@@ -8,7 +8,9 @@ SCHEDULER.every '30s', :first_in => 0 do |job|
   response = http.request(request)
   users = JSON.parse(response.body)['users']
 
-  if users
+  if users.length > 0
+    users.select! { |u| u['division'] == 3 } # Filter IT
+
     users.map! do |user|
       location = user['location'].downcase
       user = { :name => user['name'] }
